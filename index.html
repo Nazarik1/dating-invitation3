@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запрошення на побачення</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        #invitation {
+            margin-top: 50px;
+        }
+        #yes, #no {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        #image-container {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="invitation">
+    <p>Чи підеш зі мною в кіно?</p>
+    <button id="yes" onclick="showImage()">Так</button>
+    <button id="no" onclick="shuffleNo()">Ні</button>
+</div>
+
+<div id="image-container">
+    <img src="link_to_your_cute_image.jpg" alt="Мила картинка">
+</div>
+
+<script>
+    function showImage() {
+        document.getElementById("invitation").style.display = "none";
+        document.getElementById("image-container").style.display = "block";
+    }
+
+    function shuffleNo() {
+        var noButton = document.getElementById("no");
+        var xPos = Math.floor(Math.random() * window.innerWidth - noButton.clientWidth);
+        var yPos = Math.floor(Math.random() * window.innerHeight - noButton.clientHeight);
+        
+        noButton.style.position = "absolute";
+        noButton.style.left = xPos + "px";
+        noButton.style.top = yPos + "px";
+    }
+</script>
+
+</body>
+</html>
